@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: assign3
+  labels:
+    app: assign3
+  
+spec:
+  selector:
+    matchLabels:
+      app: assign3-pod
+  template:
+    metadata:
+      labels:
+        app: assign3-pod
+    spec:
+      containers:
+      - name: server
+        image: docker.io/jiaekim0/animal:1.0
+        ports:
+        - containerPort: 65456
+
+      - name: client
+        image: docker.io/jiaekim0/client0:1.2
+
